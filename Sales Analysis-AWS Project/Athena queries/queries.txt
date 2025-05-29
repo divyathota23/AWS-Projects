@@ -1,0 +1,17 @@
+-- Total Sales by Category
+SELECT Category, SUM(Sales) AS Total_Sales
+FROM "superstore_db"."orders"
+GROUP BY Category;
+
+-- Profit by State
+SELECT State, SUM(Profit) AS Profit
+FROM "superstore_db"."orders"
+GROUP BY State
+ORDER BY Profit DESC
+LIMIT 10;
+
+-- Monthly Sales Trend
+SELECT date_trunc('month', order_date) AS month, SUM(sales) AS total_sales
+FROM "superstore_db"."orders"
+GROUP BY 1
+ORDER BY 1;
